@@ -79,7 +79,7 @@ public class TopBar extends RelativeLayout {
             rightButtonBackground = styleable.getDrawable(R.styleable.TopTitle_rightButtonBackground);
             rightButtonVisible = styleable.getBoolean(R.styleable.TopTitle_rightButtonVisible, true);
 
-            lineVisible = styleable.getBoolean(R.styleable.TopTitle_lineVisible, true);
+            lineVisible = styleable.getBoolean(R.styleable.TopTitle_lineVisible, false);
             contentBackground = styleable.getDrawable(R.styleable.TopTitle_topTitleBackground);
             styleable.recycle();
         }
@@ -182,6 +182,15 @@ public class TopBar extends RelativeLayout {
                 }
             }
         });
+
+        llCenter.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onTopCenterClick();
+                }
+            }
+        });
     }
 
     private OnTopBarClickListener listener;
@@ -196,6 +205,9 @@ public class TopBar extends RelativeLayout {
         void onTopRightClick();
 
         void onTopLeftSecondClick();
+
+
+        void onTopCenterClick();
     }
 
     public void setTitleText(String str) {
@@ -274,6 +286,10 @@ public class TopBar extends RelativeLayout {
     public View getContentView(){
 
         return contentView;
+    }
+
+    public TextView getTitleView(){
+        return mTvTitle;
     }
 
     @Override

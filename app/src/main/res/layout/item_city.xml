@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="河北"
+        android:layout_marginTop="@dimen/common_vertical_padding"
+        android:layout_marginLeft="@dimen/common_horizontal_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_big"
+        android:id="@+id/tv_province" />
+    <TextView
+        android:text="石家庄 张家口"
+        android:layout_marginLeft="@dimen/common_horizontal_padding"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:id="@+id/tv_city" />
+</LinearLayout>

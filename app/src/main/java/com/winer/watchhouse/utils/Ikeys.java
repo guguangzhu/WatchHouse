@@ -11,4 +11,8 @@ public interface Ikeys {
     String KEY_REAL_NAME ="real_name";
 
     String KEY_PRIVATE_KEY = "key_private_key";
+
+    String KEY_LOCATION = "key_location";
+
+    int KEY_GETLOCATION=111;
 }

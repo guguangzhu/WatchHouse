@@ -23,13 +23,13 @@ import okhttp3.Call;
  * Created by guugangzhu on 2016/9/23.
  */
 
-public class BaseActivity extends AppCompatActivity implements ResponseListener ,TopBar.OnTopBarClickListener {
+public class BaseActivity extends AppCompatActivity implements ResponseListener ,TopBar.OnTopBarClickListener ,Ikeys{
     private Context mContext;
     private HouseApplication app;
     public TopBar topBar;
-    private View contentView;
     private RelativeLayout cltParent;
 
+    private View contentView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,8 @@ public class BaseActivity extends AppCompatActivity implements ResponseListener 
 //        super.setContentView(resourceId);
         View view= LayoutInflater.from(this).inflate(resourceId, null);
         topBar = (TopBar) view.findViewById(R.id.topbar);
-
+        topBar.setOnTopBarClickListener(this);
+        topBar.setTitleLeftImg(R.mipmap.ic_arrow_back);
         cltParent = (RelativeLayout) view.findViewById(R.id.clt_parent);
 
     }
@@ -213,6 +214,11 @@ public class BaseActivity extends AppCompatActivity implements ResponseListener 
 
     @Override
     public void onTopLeftSecondClick() {
+
+    }
+
+    @Override
+    public void onTopCenterClick() {
 
     }
 }

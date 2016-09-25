@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorPrimary</item>
         <!--<item name="android:colorForeground">@android:color/white</item>-->
         <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/background_color </item>
     </style>
 
 
