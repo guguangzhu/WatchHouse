@@ -53,6 +53,8 @@ public class PanoramicFragment extends BaseFragment {
         list.add("");
         list.add("");
         list.add("");
+        list.add("");
+        list.add("");
         adapter=new HouseAdapter(getContext(),list);
         gvHouse.setAdapter(adapter);
     }

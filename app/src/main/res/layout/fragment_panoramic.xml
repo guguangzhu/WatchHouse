@@ -3,6 +3,11 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
     <com.winer.watchhouse.view.pullview.PullToRefreshGridView
         android:id="@+id/gv_house"
+        android:numColumns="2"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
         android:layout_width="match_parent"
+        android:padding="5dp"
+        android:stretchMode="columnWidth"
         android:layout_height="match_parent"  />
 </RelativeLayout>

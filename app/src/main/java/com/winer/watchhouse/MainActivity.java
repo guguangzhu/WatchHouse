@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.view_pager_main)
     NoScrollViewPager viewPagerMain;
 
-    private final String[] TITLE = new String[]{"地图找房", "全景看房"};
+    private final String[] TITLE = new String[]{ "全景看房"};
     private List<Fragment> mFragments = new ArrayList<>();
     private Fragment homeFragment, panoramicFragment;
     private Fragment currentFragment;
@@ -84,7 +84,7 @@ public class MainActivity extends BaseActivity {
         topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
 //        topBar.setTitleLeftImg(R.mipmap.ic_launcher);
         viewPagerMain.setNoScroll(true);
-        mFragments.add(HomeMapFragment.newInstance());
+//        mFragments.add(HomeMapFragment.newInstance());
         mFragments.add(PanoramicFragment.newInstance());
         mAdapter = new MyFragmentAdapter(getSupportFragmentManager());
         viewPagerMain.setAdapter(mAdapter);
