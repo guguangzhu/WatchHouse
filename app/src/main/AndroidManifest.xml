@@ -36,8 +36,10 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="a05b08f98fb4ddc6f5a55863a17d0bf6" />
-
+        <!--选择城市-->
         <activity android:name=".ChooseCityActivity" android:screenOrientation="portrait"/>
+        <!--产看户型-->
+        <activity android:name=".HouseTypeActivity" android:screenOrientation="portrait"/>
 
         <service android:name="com.amap.api.location.APSService"/>
     </application>

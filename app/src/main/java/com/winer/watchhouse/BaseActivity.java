@@ -23,7 +23,7 @@ import okhttp3.Call;
  * Created by guugangzhu on 2016/9/23.
  */
 
-public class BaseActivity extends AppCompatActivity implements ResponseListener ,TopBar.OnTopBarClickListener ,Ikeys{
+public abstract class BaseActivity extends AppCompatActivity implements ResponseListener ,TopBar.OnTopBarClickListener ,Ikeys{
     private Context mContext;
     private HouseApplication app;
     public TopBar topBar;
@@ -71,6 +71,8 @@ public class BaseActivity extends AppCompatActivity implements ResponseListener 
         setContentView(cltParent, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT));
     }
+
+    public abstract void initView();
 
     /***
      * 显示toast，默认显示时间为LENGTH_SHORT

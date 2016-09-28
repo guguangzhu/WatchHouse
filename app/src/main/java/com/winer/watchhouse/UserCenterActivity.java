@@ -13,4 +13,9 @@ public class UserCenterActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_center);
     }
+
+    @Override
+    public void initView() {
+
+    }
 }

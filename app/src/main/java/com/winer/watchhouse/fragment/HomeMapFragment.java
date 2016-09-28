@@ -223,4 +223,9 @@ public class HomeMapFragment extends BaseFragment implements LocationSource,
         }
         mlocationClient = null;
     }
+
+    @Override
+    public void initView(View view) {
+
+    }
 }

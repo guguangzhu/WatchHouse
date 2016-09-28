@@ -47,7 +47,8 @@ public class ChooseCityActivity extends BaseActivity implements AMapLocationList
         initView();
     }
 
-    private void initView(){
+    @Override
+    public void initView(){
         List<String> list=new ArrayList<>();
         list.add("");
         list.add("");

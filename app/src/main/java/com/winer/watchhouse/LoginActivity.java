@@ -76,6 +76,10 @@ public class LoginActivity extends BaseActivity {
         initBackground();
     }
 
+    @Override
+    public void initView() {
+
+    }
 
 
     private void initBackground(){

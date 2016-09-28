@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    private void initView() {
+    public void initView() {
         setTitle("北京");
         topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
 //        topBar.setTitleLeftImg(R.mipmap.ic_launcher);
