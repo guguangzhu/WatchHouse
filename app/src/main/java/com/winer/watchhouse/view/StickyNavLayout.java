@@ -22,6 +22,7 @@ import android.widget.OverScroller;
 import android.widget.ScrollView;
 
 import com.winer.watchhouse.R;
+import com.winer.watchhouse.utils.LogUtils;
 
 import in.srain.cube.views.GridViewWithHeaderAndFooter;
 
@@ -266,6 +267,20 @@ public class StickyNavLayout extends LinearLayout {
                         isSticky = true;
                         return dispatchTouchEvent(ev2);
                     }
+                } else if(mInnerScrollView instanceof GridView){
+                    GridView lv = (GridView) mInnerScrollView;
+                    View c = lv.getChildAt(lv.getFirstVisiblePosition());
+
+                    if (!isInControl && c != null && c.getTop() == 0 && isTopHidden
+                            && dy > 0) {
+                        isInControl = true;
+                        ev.setAction(MotionEvent.ACTION_CANCEL);
+                        MotionEvent ev2 = MotionEvent.obtain(ev);
+                        dispatchTouchEvent(ev);
+                        ev2.setAction(MotionEvent.ACTION_DOWN);
+                        isSticky = true;
+                        return dispatchTouchEvent(ev2);
+                    }
                 } else if (mInnerScrollView instanceof RecyclerView) {
                     RecyclerView rv = (RecyclerView) mInnerScrollView;
                     if (!isInControl && android.support.v4.view.ViewCompat.canScrollVertically(rv, -1) && isTopHidden
@@ -358,7 +373,26 @@ public class StickyNavLayout extends LinearLayout {
                                 return true;
                             }
                         }
-                    } else if (mInnerScrollView instanceof RecyclerView) {
+                    }else if(mInnerScrollView instanceof GridView){
+                        GridView lv = (GridView) mInnerScrollView;
+                        View c = lv.getChildAt(lv.getFirstVisiblePosition());
+                        if (!isTopHidden
+                                || (c != null && c.getTop() -lv.getPaddingTop()== 0 && isTopHidden && dy > 0)) {
+                            initVelocityTrackerIfNotExists();
+                            mVelocityTracker.addMovement(ev);
+                            mLastY = y;
+                            return true;
+                        } else {
+
+                            if (lv.getAdapter() != null && lv.getAdapter().getCount() == 0) {//当ListView或ScrollView 没有数据为空时
+                                initVelocityTrackerIfNotExists();
+                                mVelocityTracker.addMovement(ev);
+                                mLastY = y;
+                                return true;
+                            }
+                        }
+                    }
+                    else if (mInnerScrollView instanceof RecyclerView) {
                         RecyclerView rv = (RecyclerView) mInnerScrollView;
                         if (!isTopHidden || (!android.support.v4.view.ViewCompat.canScrollVertically(rv, -1) && isTopHidden && dy > 0)) {
                             initVelocityTrackerIfNotExists();

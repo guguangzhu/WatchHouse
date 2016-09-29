@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 
 import com.winer.watchhouse.fragment.HouseTypeInfoFragment;
 import com.winer.watchhouse.fragment.HouseTypePicFragment;
+import com.winer.watchhouse.fragment.PanoramicFragment;
 import com.winer.watchhouse.view.SimpleViewPagerIndicator;
 
 import butterknife.BindView;
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
  * Created by guugangzhu on 2016/9/28.
  */
 
-public class HouseTypeActivity extends AppCompatActivity {
+public class HouseTypeActivity extends BaseActivity {
 
     @BindView(R.id.id_stickynavlayout_topview)
     RelativeLayout idStickynavlayoutTopview;
@@ -76,10 +77,13 @@ public class HouseTypeActivity extends AppCompatActivity {
     {
         idStickynavlayoutIndicator.setTitles(mTitles);
 
-        for (int i = 0; i < mTitles.length; i++)
-        {
-            mFragments[i] = HouseTypeInfoFragment.newInstance();
-        }
+//        for (int i = 0; i < mTitles.length; i++)
+//        {
+//            mFragments[i] = HouseTypeInfoFragment.newInstance();
+//        }
+        mFragments[0] = HouseTypeInfoFragment.newInstance();
+        mFragments[1] = HouseTypePicFragment.newInstance();
+        mFragments[2] = HouseTypePicFragment.newInstance();
 
         mAdapter = new FragmentPagerAdapter(getSupportFragmentManager())
         {

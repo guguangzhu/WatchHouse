@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@id/id_stickynavlayout_innerscrollview"
+    android:numColumns="2"
+    android:verticalSpacing="10dp"
+    android:horizontalSpacing="10dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:padding="5dp"
+    android:stretchMode="columnWidth"
+    android:layout_height="match_parent">
 
-</ListView>
+</GridView>

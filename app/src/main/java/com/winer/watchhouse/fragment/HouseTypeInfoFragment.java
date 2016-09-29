@@ -23,10 +23,7 @@ import butterknife.ButterKnife;
 
 public class HouseTypeInfoFragment extends BaseFragment {
 
-
-    @BindView(R.id.tv_house_info)
-    TextView tvHouseInfo;
-    @BindView(R.id.lv_info)
+    @BindView(R.id.id_stickynavlayout_innerscrollview)
     ListView lvInfo;
 
     public static HouseTypeInfoFragment newInstance() {
@@ -54,6 +51,8 @@ public class HouseTypeInfoFragment extends BaseFragment {
         list.add("");
         list.add("");
         HouseAdapter  adapter=new HouseAdapter(getContext(),list);
+        View header=getLayoutInflater(null).inflate(R.layout.layout_house_info_header,null);
+        lvInfo.addHeaderView(header);
         lvInfo.setAdapter(adapter);
     }
 }

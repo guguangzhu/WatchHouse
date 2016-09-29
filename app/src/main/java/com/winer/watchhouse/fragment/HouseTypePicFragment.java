@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import com.winer.watchhouse.R;
@@ -15,6 +16,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.srain.cube.views.GridViewWithHeaderAndFooter;
 
 /**
  * 户型图片
@@ -25,7 +27,7 @@ public class HouseTypePicFragment extends BaseFragment {
 
 
     @BindView(R.id.id_stickynavlayout_innerscrollview)
-    ListView lvPicture;
+    GridView lvPicture;
 
     public static HouseTypePicFragment newInstance() {
         HouseTypePicFragment fragment = new HouseTypePicFragment();
@@ -45,6 +47,8 @@ public class HouseTypePicFragment extends BaseFragment {
     @Override
     public void initView(View view) {
         List<String> list = new ArrayList<>();
+        list.add("");
+        list.add("");
         list.add("");
         list.add("");
         list.add("");
