@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.RelativeLayout;
 
 import com.winer.watchhouse.fragment.HouseTypeInfoFragment;
+import com.winer.watchhouse.fragment.HouseTypePicFragment;
 import com.winer.watchhouse.view.SimpleViewPagerIndicator;
 
 import butterknife.BindView;
