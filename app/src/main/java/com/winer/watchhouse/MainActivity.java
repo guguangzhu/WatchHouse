@@ -1,14 +1,18 @@
 package com.winer.watchhouse;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.winer.watchhouse.fragment.HomeMapFragment;
 import com.winer.watchhouse.fragment.PanoramicFragment;
@@ -19,6 +23,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
@@ -35,12 +40,16 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.view_pager_main)
     NoScrollViewPager viewPagerMain;
 
-    private final String[] TITLE = new String[]{ "全景看房"};
+    private final String[] TITLE = new String[]{"全景看房"};
+    @BindView(R.id.tv_house_type)
+    TextView tvHouseType;
     private List<Fragment> mFragments = new ArrayList<>();
     private Fragment homeFragment, panoramicFragment;
     private Fragment currentFragment;
     private int currentPosition = MAP;
     private MyFragmentAdapter mAdapter;
+
+    private int type;
 
 
     @Override
@@ -56,12 +65,25 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onTopCenterClick() {
-        goPage(ChooseCityActivity.class, null, KEY_GETLOCATION);
+        if(tvHouseType.getVisibility()==View.VISIBLE){
+            tvHouseType.setVisibility(View.GONE);
+            topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
+        }else{
+            tvHouseType.setVisibility(View.VISIBLE);
+            topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_up, 0);
+        }
+
+
     }
 
     @Override
     public void onTopLeftClick() {
 
+    }
+
+    @Override
+    public void onTopRightClick() {
+        goPage(ChooseCityActivity.class, null, KEY_GETLOCATION);
     }
 
     @Override
@@ -72,7 +94,7 @@ public class MainActivity extends BaseActivity {
 //                setTitle();
                 if (resultCode == RESULT_OK) {
                     String city = data.getStringExtra(KEY_LOCATION);
-                    setTitle(city);
+                    setTopBarRightText(city);
                 }
                 break;
         }
@@ -80,7 +102,8 @@ public class MainActivity extends BaseActivity {
     }
 
     public void initView() {
-        setTitle("北京");
+        setTitle("新房");
+        topBar.setTitleRightText("北京");
         topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
 //        topBar.setTitleLeftImg(R.mipmap.ic_launcher);
         viewPagerMain.setNoScroll(true);
@@ -89,6 +112,34 @@ public class MainActivity extends BaseActivity {
         mAdapter = new MyFragmentAdapter(getSupportFragmentManager());
         viewPagerMain.setAdapter(mAdapter);
         tabs.setupWithViewPager(viewPagerMain);
+
+        type=TYPE_NEW;
+        tvHouseType.setText("二手房");
+
+    }
+    @OnClick(R.id.tv_house_type)
+    public void onClick() {
+        type=type==TYPE_NEW?TYPE_OLD:TYPE_NEW;
+        tvHouseType.setVisibility(View.GONE);
+        topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
+        tvHouseType.setText(type==TYPE_NEW?"二手房":"新房");
+        setTitle(type==TYPE_NEW?"新房":"二手房");
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if(tvHouseType.getVisibility()==View.GONE)
+            return super.dispatchTouchEvent(ev);
+        Rect viewRect = new Rect();
+        topBar.getTitleView().getGlobalVisibleRect(viewRect);
+        if(viewRect.contains((int) ev.getRawX(), (int) ev.getRawY()))
+            return super.dispatchTouchEvent(ev);
+        tvHouseType.getGlobalVisibleRect(viewRect);
+        if (!viewRect.contains((int) ev.getRawX(), (int) ev.getRawY())) {
+            tvHouseType.setVisibility(View.GONE);
+            topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
+        }
+        return super.dispatchTouchEvent(ev);
     }
 
     public void switchFragment(int position) {
@@ -130,6 +181,7 @@ public class MainActivity extends BaseActivity {
         return fragment;
     }
 
+
     private void clearFragment() {
         try {
             if (currentFragment != null) {
@@ -152,6 +204,8 @@ public class MainActivity extends BaseActivity {
         currentFragment = null;
         panoramicFragment = null;
     }
+
+
 
 
     private class MyFragmentAdapter extends FragmentPagerAdapter {
