@@ -271,7 +271,7 @@ public class StickyNavLayout extends LinearLayout {
                     GridView lv = (GridView) mInnerScrollView;
                     View c = lv.getChildAt(lv.getFirstVisiblePosition());
 
-                    if (!isInControl && c != null && c.getTop() == 0 && isTopHidden
+                    if (!isInControl && c != null && c.getTop()-lv.getPaddingTop() == 0 && isTopHidden
                             && dy > 0) {
                         isInControl = true;
                         ev.setAction(MotionEvent.ACTION_CANCEL);

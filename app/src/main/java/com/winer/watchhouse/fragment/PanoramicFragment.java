@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.winer.watchhouse.EstateActivity;
 import com.winer.watchhouse.HouseTypeActivity;
 import com.winer.watchhouse.MainActivity;
 import com.winer.watchhouse.R;
@@ -76,6 +77,6 @@ public class PanoramicFragment extends BaseFragment implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        ((MainActivity)getActivity()).goPage(HouseTypeActivity.class);
+        ((MainActivity)getActivity()).goPage(EstateActivity.class);
     }
 }
