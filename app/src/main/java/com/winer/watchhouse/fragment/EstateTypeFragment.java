@@ -1,12 +1,15 @@
 package com.winer.watchhouse.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.winer.watchhouse.HouseTypeActivity;
 import com.winer.watchhouse.R;
 import com.winer.watchhouse.adapter.EstateTypeAdapter;
 import com.winer.watchhouse.adapter.HouseAdapter;
@@ -22,7 +25,7 @@ import butterknife.ButterKnife;
  * Created by guugangzhu on 2016/9/28.
  */
 
-public class EstateTypeFragment extends BaseFragment {
+public class EstateTypeFragment extends BaseFragment implements AdapterView.OnItemClickListener{
 
 
     @BindView(R.id.id_stickynavlayout_innerscrollview)
@@ -56,5 +59,11 @@ public class EstateTypeFragment extends BaseFragment {
         list.add("");
         EstateTypeAdapter adapter = new EstateTypeAdapter(getContext(), list);
         lvPicture.setAdapter(adapter);
+        lvPicture.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        getActivity().startActivity(new Intent(getActivity(), HouseTypeActivity.class));
     }
 }

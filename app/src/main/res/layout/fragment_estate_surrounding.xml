@@ -9,125 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <LinearLayout
-            android:orientation="vertical"
-            android:background="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/common_horizontal_padding"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
 
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/main_color" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="楼盘地址"
-                    android:textColor="@color/text_subtitle_color" />
-            </LinearLayout>
-            <ImageView
-                android:padding="@dimen/common_horizontal_padding"
-                android:src="@color/main_color"
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/common_horizontal_padding"
-                android:layout_marginRight="@dimen/common_horizontal_padding"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="楼盘地址"
-                    android:textColor="@color/text_subtitle_color" />
-
-                <TextView
-                    android:id="@+id/tv_estate_address"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="杭州西湖333号"
-                    android:gravity="right"
-                    android:textColor="@color/text_common_color" />
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line_color" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/common_horizontal_padding"
-                android:layout_marginRight="@dimen/common_horizontal_padding"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="售楼部地址"
-                    android:textColor="@color/text_subtitle_color" />
-
-                <TextView
-                    android:id="@+id/tv_store_address"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="杭州西湖333号"
-                    android:gravity="right"
-                    android:textColor="@color/text_common_color" />
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line_color" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/common_horizontal_padding"
-                android:layout_marginRight="@dimen/common_horizontal_padding"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="销售热线"
-                    android:textColor="@color/text_subtitle_color" />
-
-                <TextView
-                    android:id="@+id/tv_hot_line"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="010-88888888"
-                    android:gravity="right"
-                    android:textColor="@color/main_color" />
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line_color" />
-        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,23 +31,122 @@
                     android:background="@color/main_color" />
 
                 <TextView
-                    android:id="@+id/tv_house_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="楼盘介绍"
+                    android:text="交通设施"
                     android:textColor="@color/text_subtitle_color" />
             </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="1000dp"
+                android:layout_height="wrap_content"
                 android:padding="@dimen/common_horizontal_padding"
                 android:text="户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_horizontal_padding"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/main_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="学校"
+                    android:textColor="@color/text_subtitle_color" />
+            </LinearLayout>
+
             <TextView
-                android:text="111111111111111111111111111111111111111111111111111111111111111"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/common_horizontal_padding"
+                android:text="户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_horizontal_padding"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/main_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="超市菜场"
+                    android:textColor="@color/text_subtitle_color" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/common_horizontal_padding"
+                android:text="户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_horizontal_padding"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/main_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="医院药房"
+                    android:textColor="@color/text_subtitle_color" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/common_horizontal_padding"
+                android:text="户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/common_horizontal_padding"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/main_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="银行"
+                    android:textColor="@color/text_subtitle_color" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/common_horizontal_padding"
+                android:text="户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍户型介绍" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

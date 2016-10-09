@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.RelativeLayout;
 
 import com.winer.watchhouse.fragment.EstateInfoFragment;
+import com.winer.watchhouse.fragment.EstateSurroundingFragment;
 import com.winer.watchhouse.fragment.EstateTypeFragment;
 import com.winer.watchhouse.fragment.HouseTypeInfoFragment;
 import com.winer.watchhouse.fragment.HouseTypePicFragment;
@@ -36,7 +37,7 @@ public class EstateActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_house_type);
+        setContentView(R.layout.activity_estate_detail);
         ButterKnife.bind(this);
         initView();
         initEvents();
@@ -83,7 +84,7 @@ public class EstateActivity extends BaseActivity {
 //        }
         mFragments[0] = EstateInfoFragment.newInstance();
         mFragments[1] = EstateTypeFragment.newInstance();
-        mFragments[2] = HouseTypePicFragment.newInstance();
+        mFragments[2] = EstateSurroundingFragment.newInstance();
         mFragments[3] = HouseTypePicFragment.newInstance();
         mFragments[4] = HouseTypePicFragment.newInstance();
         mFragments[5] = HouseTypePicFragment.newInstance();
