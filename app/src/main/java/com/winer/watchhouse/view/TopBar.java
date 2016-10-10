@@ -43,11 +43,13 @@ public class TopBar extends RelativeLayout {
     private TextView mTvRightBtn;
     private TextView mTvTitle;
     private TextView tvLeftSecond;
+    private TextView tvRightSecond;
 
     private LinearLayout llLeft;
     private LinearLayout llRight;
     private LinearLayout llCenter;
     private LinearLayout llLeftSecond;
+    private LinearLayout llRightSecond;
 
     private View contentView;
     private View viewLine;
@@ -94,9 +96,11 @@ public class TopBar extends RelativeLayout {
         llCenter = (LinearLayout) findViewById(R.id.ll_centent);
         llRight = (LinearLayout) findViewById(R.id.ll_right);
         llLeftSecond = (LinearLayout) findViewById(R.id.ll_left_second);
+        llRightSecond = (LinearLayout) findViewById(R.id.ll_right_second);
         mTvLeftBtn = (TextView) findViewById(R.id.tv_left);
         mTvRightBtn = (TextView) findViewById(R.id.tv_right);
         tvLeftSecond = (TextView) findViewById(R.id.tv_left_second);
+        tvRightSecond = (TextView) findViewById(R.id.tv_right_second);
         mTvTitle = (TextView) findViewById(R.id.tv_cent);
         viewLine = (View) findViewById(R.id.view_top_bar_line);
         if (titleTextSize != 0.0)
@@ -183,6 +187,15 @@ public class TopBar extends RelativeLayout {
             }
         });
 
+        llRightSecond.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onTopLeftSecondClick();
+                }
+            }
+        });
+
         llCenter.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,6 +219,7 @@ public class TopBar extends RelativeLayout {
 
         void onTopLeftSecondClick();
 
+        void onTopRightSecondClick();
 
         void onTopCenterClick();
     }
@@ -239,6 +253,11 @@ public class TopBar extends RelativeLayout {
         tvLeftSecond.setBackgroundResource(0);
         tvLeftSecond.setText(str);
     }
+    public void setRightSecondText(String str) {
+        llRightSecond.setVisibility(View.VISIBLE);
+        tvRightSecond.setBackgroundResource(0);
+        tvRightSecond.setText(str);
+    }
 
     public void setTitleLeftImg(int imgId) {
         llLeft.setVisibility(View.VISIBLE);
@@ -252,6 +271,10 @@ public class TopBar extends RelativeLayout {
     public void setLeftSecondImg(int imgId) {
         llLeftSecond.setVisibility(View.VISIBLE);
         tvLeftSecond.setBackgroundResource(imgId);
+    }
+    public void setRightSecondImg(int imgId) {
+        llRightSecond.setVisibility(View.VISIBLE);
+        tvRightSecond.setBackgroundResource(imgId);
     }
 
     public void hideLeft(){
@@ -290,6 +313,9 @@ public class TopBar extends RelativeLayout {
 
     public TextView getTitleView(){
         return mTvTitle;
+    }
+    public TextView getRightView(){
+        return mTvRightBtn;
     }
 
     @Override

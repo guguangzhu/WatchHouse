@@ -6,6 +6,7 @@
     android:horizontalSpacing="10dp"
     android:layout_width="match_parent"
     android:padding="5dp"
+    android:background="@color/white"
     android:stretchMode="columnWidth"
     android:layout_height="match_parent">
 

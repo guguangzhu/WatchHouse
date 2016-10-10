@@ -51,6 +51,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="万科.魅力之城"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/text_size_mid"
                         android:textColor="@color/text_title_color" />
 
                     <TextView
@@ -60,7 +62,7 @@
                         android:layout_below="@+id/tv_name"
                         android:text="两室一厅 100平米"
                         android:textColor="@color/text_title_color"
-                        android:textStyle="bold" />
+                         />
 
                     <ImageView
                         android:id="@+id/calculator"
@@ -74,64 +76,88 @@
                 <View
                     android:id="@+id/line1"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1px"
                     android:layout_below="@+id/rl_name"
                     android:background="@color/line_color" />
 
                 <LinearLayout
+                    android:id="@+id/ll_top_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/line1"
                     android:orientation="horizontal"
-                    android:padding="@dimen/common_horizontal_padding">
-
+                    android:padding="@dimen/common_horizontal_padding"
+>
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="均价：" />
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/text_size_mid"
+                            android:text="100万" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="12000"
-                            android:textColor="@color/main_color" />
+                            android:textSize="@dimen/text_size_small"
+                            android:text="总价" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="元/㎡" />
                     </LinearLayout>
-
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="总价：" />
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/text_size_mid_x"
+                            android:text="100万" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="120"
-                            android:textColor="@color/main_color" />
+                            android:textSize="@dimen/text_size_small"
+                            android:text="总价"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="万元" />
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/text_size_mid_x"
+                            android:text="100万" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/text_size_small"
+                            android:text="总价"/>
+
                     </LinearLayout>
                 </LinearLayout>
-
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_below="@+id/ll_top_content"
+                    android:background="@color/line_color" />
             </RelativeLayout>
         </RelativeLayout>
 

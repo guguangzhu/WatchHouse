@@ -223,4 +223,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Response
     public void onTopCenterClick() {
 
     }
+
+    @Override
+    public void onTopRightSecondClick() {
+
+    }
 }

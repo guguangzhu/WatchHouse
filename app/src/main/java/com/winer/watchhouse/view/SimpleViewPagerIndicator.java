@@ -102,7 +102,7 @@ public class SimpleViewPagerIndicator extends LinearLayout
 			tv.setTextColor(COLOR_TEXT_NORMAL);
 			tv.setText(mTitles[i]);
 			tv.setTag(i);
-			tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+			tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
 			tv.setLayoutParams(lp);
 			tv.setOnClickListener(new OnClickListener()
 			{

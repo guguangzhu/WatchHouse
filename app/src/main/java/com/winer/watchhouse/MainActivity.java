@@ -105,6 +105,7 @@ public class MainActivity extends BaseActivity {
         setTitle("新房");
         topBar.setTitleRightText("北京");
         topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
+        topBar.getRightView().setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ic_main_location, 0, 0, 0);
 //        topBar.setTitleLeftImg(R.mipmap.ic_launcher);
         viewPagerMain.setNoScroll(true);
 //        mFragments.add(HomeMapFragment.newInstance());

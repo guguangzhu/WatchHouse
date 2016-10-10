@@ -5,12 +5,22 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
+import com.winer.watchhouse.adapter.EstateTypeAdapter;
+import com.winer.watchhouse.adapter.HouseSizeAdapter;
 import com.winer.watchhouse.fragment.HouseTypeInfoFragment;
 import com.winer.watchhouse.fragment.HouseTypePicFragment;
 import com.winer.watchhouse.fragment.PanoramicFragment;
 import com.winer.watchhouse.view.SimpleViewPagerIndicator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,7 +55,10 @@ public class HouseTypeActivity extends BaseActivity {
 
 
     public void initView() {
-
+        setTitle("三室两厅 100㎡");
+        topBar.setRightSecondImg(R.mipmap.ic_heart);
+        topBar.setTitleRightImg(R.mipmap.ic_share);
+        topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0,0,  R.mipmap.ic_arrow_down_small);
     }
 
     private void initEvents()
@@ -103,5 +116,52 @@ public class HouseTypeActivity extends BaseActivity {
 
         idStickynavlayoutViewpager.setAdapter(mAdapter);
         idStickynavlayoutViewpager.setCurrentItem(0);
+    }
+
+    @Override
+    public void onTopCenterClick() {
+        showPopupWindow(topBar.getTitleView());
+    }
+
+    private void showPopupWindow(View view) {
+
+        // 一个自定义的布局，作为显示的内容
+        View contentView = LayoutInflater.from(this).inflate(
+                R.layout.pop_house_size, null);
+
+        ListView lvSize= (ListView) contentView.findViewById(R.id.lv_size);
+        List<String> list = new ArrayList<>();
+        list.add("");
+        list.add("");
+        list.add("");
+        list.add("");
+
+        HouseSizeAdapter adapter = new HouseSizeAdapter(this, list);
+        lvSize.setAdapter(adapter);
+        final PopupWindow popupWindow = new PopupWindow(contentView,
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+
+//        popupWindow.setTouchable(true);
+//
+//        popupWindow.setTouchInterceptor(new OnTouchListener() {
+//
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//
+//
+//                return false;
+//                // 这里如果返回true的话，touch事件将被拦截
+//                // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
+//            }
+//        });
+
+        // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
+        // 我觉得这里是API的一个bug
+        popupWindow.setBackgroundDrawable(getResources().getDrawable(
+                R.drawable.bg_transparent));
+
+        // 设置好参数之后再show
+        popupWindow.showAsDropDown(view);
+
     }
 }
