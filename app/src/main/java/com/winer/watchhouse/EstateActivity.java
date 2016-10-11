@@ -4,18 +4,22 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.winer.watchhouse.fragment.EstateInfoFragment;
 import com.winer.watchhouse.fragment.EstatePanoramicFragment;
 import com.winer.watchhouse.fragment.EstateSurroundingFragment;
 import com.winer.watchhouse.fragment.EstateTypeFragment;
-import com.winer.watchhouse.fragment.HouseTypeInfoFragment;
 import com.winer.watchhouse.fragment.HouseTypePicFragment;
 import com.winer.watchhouse.view.SimpleViewPagerIndicator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 楼盘详情
@@ -30,6 +34,22 @@ public class EstateActivity extends BaseActivity {
     SimpleViewPagerIndicator idStickynavlayoutIndicator;
     @BindView(R.id.id_stickynavlayout_viewpager)
     ViewPager idStickynavlayoutViewpager;
+    @BindView(R.id.ll_house_type_bottom)
+    LinearLayout llHouseTypeBottom;
+    @BindView(R.id.iv_title)
+    ImageView ivTitle;
+    @BindView(R.id.tv_name)
+    TextView tvName;
+    @BindView(R.id.tv_size)
+    TextView tvSize;
+    @BindView(R.id.calculator)
+    ImageView calculator;
+    @BindView(R.id.iv_red_packet)
+    ImageView ivRedPacket;
+    @BindView(R.id.rl_name)
+    RelativeLayout rlName;
+    @BindView(R.id.line1)
+    View line1;
 
     private String[] mTitles = new String[]{"简介", "户型", "周边配套", "全景看房", "图片", "活动"};
     private FragmentPagerAdapter mAdapter;
@@ -102,5 +122,18 @@ public class EstateActivity extends BaseActivity {
 
         idStickynavlayoutViewpager.setAdapter(mAdapter);
         idStickynavlayoutViewpager.setCurrentItem(0);
+    }
+
+    @OnClick({R.id.iv_title, R.id.calculator, R.id.iv_red_packet})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_title:
+                goPage(PhotoViewActivity.class);
+                break;
+            case R.id.calculator:
+                break;
+            case R.id.iv_red_packet:
+                break;
+        }
     }
 }
