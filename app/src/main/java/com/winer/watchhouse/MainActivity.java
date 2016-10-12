@@ -78,7 +78,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onTopLeftClick() {
-
+        goPage(UserCenterActivity.class);
     }
 
     @Override
@@ -106,6 +106,8 @@ public class MainActivity extends BaseActivity {
         topBar.setTitleRightText("北京");
         topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
         topBar.getRightView().setCompoundDrawablesWithIntrinsicBounds(R.mipmap.ic_main_location, 0, 0, 0);
+
+        topBar.getTopBarLeftTextView().setBackgroundResource(R.mipmap.ic_main_user_center);
 //        topBar.setTitleLeftImg(R.mipmap.ic_launcher);
         viewPagerMain.setNoScroll(true);
 //        mFragments.add(HomeMapFragment.newInstance());

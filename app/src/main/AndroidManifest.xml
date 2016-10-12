@@ -46,6 +46,26 @@
         <activity android:name=".HouseTypeActivity" android:screenOrientation="portrait"/>
         <!--产看楼盘-->
         <activity android:name=".EstateActivity" android:screenOrientation="portrait"/>
+        <!--个人中心-->
+        <activity android:name=".UserCenterActivity" android:screenOrientation="portrait"/>
+        <!--红包-->
+        <activity android:name=".RedPacketActivity" android:screenOrientation="portrait"/>
+        <!--红包详情-->
+        <activity android:name=".PacketDetailActivity" android:screenOrientation="portrait"/>
+        <!--提现-->
+        <activity android:name=".WithdrawalActivity" android:screenOrientation="portrait"/>
+        <!--积分-->
+        <activity android:name=".MyPointsActivity" android:screenOrientation="portrait"/>
+        <!--礼品-->
+        <activity android:name=".MyGiftActivity" android:screenOrientation="portrait"/>
+        <!--礼品详情-->
+        <activity android:name=".GiftDetailActivity" android:screenOrientation="portrait"/>
+        <!--优惠券-->
+        <activity android:name=".MyCouponActivity" android:screenOrientation="portrait"/>
+        <!--优惠详情-->
+        <activity android:name=".CouponDetailActivity" android:screenOrientation="portrait"/>
+        <!--个人资料-->
+        <activity android:name=".MyProfileActivity" android:screenOrientation="portrait"/>
 
         <service android:name="com.amap.api.location.APSService"/>
     </application>
