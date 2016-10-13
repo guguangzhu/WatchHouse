@@ -15,6 +15,23 @@
         app:tabIndicatorColor="@color/main_color"
         app:tabSelectedTextColor="@color/main_color"
         app:tabTextColor="@color/text_common_color" />
+
+    <com.winer.watchhouse.view.NoScrollViewPager
+        android:id="@+id/view_pager_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabs"
+        />
+    <LinearLayout
+        android:id="@+id/ll_second_hand"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@color/background_color"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </LinearLayout>
+
     <TextView
         android:text="二手房"
         android:gravity="center"
@@ -24,11 +41,4 @@
         android:textColor="@color/main_color"
         android:visibility="gone"
         android:layout_height="48dp" />
-    <com.winer.watchhouse.view.NoScrollViewPager
-        android:id="@+id/view_pager_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tabs"
-        />
-
 </RelativeLayout>

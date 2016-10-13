@@ -11,11 +11,14 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.winer.watchhouse.fragment.EstateInfoFragment;
 import com.winer.watchhouse.fragment.HomeMapFragment;
 import com.winer.watchhouse.fragment.PanoramicFragment;
+import com.winer.watchhouse.fragment.SecondHandListFragment;
 import com.winer.watchhouse.view.NoScrollViewPager;
 
 import java.util.ArrayList;
@@ -40,12 +43,15 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.view_pager_main)
     NoScrollViewPager viewPagerMain;
 
-    private final String[] TITLE = new String[]{"全景看房"};
+    private final String[] TITLE = new String[]{"地图找房", "全景看房"};
     @BindView(R.id.tv_house_type)
     TextView tvHouseType;
+    @BindView(R.id.ll_second_hand)
+    LinearLayout llSecondHand;
     private List<Fragment> mFragments = new ArrayList<>();
     private Fragment homeFragment, panoramicFragment;
     private Fragment currentFragment;
+    private Fragment secondHandFragment;
     private int currentPosition = MAP;
     private MyFragmentAdapter mAdapter;
 
@@ -65,10 +71,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onTopCenterClick() {
-        if(tvHouseType.getVisibility()==View.VISIBLE){
+        if (tvHouseType.getVisibility() == View.VISIBLE) {
             tvHouseType.setVisibility(View.GONE);
             topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
-        }else{
+        } else {
             tvHouseType.setVisibility(View.VISIBLE);
             topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_up, 0);
         }
@@ -110,32 +116,42 @@ public class MainActivity extends BaseActivity {
         topBar.getTopBarLeftTextView().setBackgroundResource(R.mipmap.ic_main_user_center);
 //        topBar.setTitleLeftImg(R.mipmap.ic_launcher);
         viewPagerMain.setNoScroll(true);
-//        mFragments.add(HomeMapFragment.newInstance());
+        mFragments.add(HomeMapFragment.newInstance());
         mFragments.add(PanoramicFragment.newInstance());
         mAdapter = new MyFragmentAdapter(getSupportFragmentManager());
         viewPagerMain.setAdapter(mAdapter);
         tabs.setupWithViewPager(viewPagerMain);
 
-        type=TYPE_NEW;
+        type = TYPE_NEW;
         tvHouseType.setText("二手房");
 
     }
+
     @OnClick(R.id.tv_house_type)
     public void onClick() {
-        type=type==TYPE_NEW?TYPE_OLD:TYPE_NEW;
+        type = type == TYPE_NEW ? TYPE_OLD : TYPE_NEW;
         tvHouseType.setVisibility(View.GONE);
         topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, R.mipmap.ic_arrow_down, 0);
-        tvHouseType.setText(type==TYPE_NEW?"二手房":"新房");
-        setTitle(type==TYPE_NEW?"新房":"二手房");
+
+        setTitle(type == TYPE_NEW ? "新房" : "二手房");
+       if(type==TYPE_NEW){
+           tvHouseType.setText("二手房" );
+           setTitle("新房");
+           hideFragment();
+       }else {
+           tvHouseType.setText("新房" );
+           setTitle("二手房");
+           showFragment();
+       }
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        if(tvHouseType.getVisibility()==View.GONE)
+        if (tvHouseType.getVisibility() == View.GONE)
             return super.dispatchTouchEvent(ev);
         Rect viewRect = new Rect();
         topBar.getTitleView().getGlobalVisibleRect(viewRect);
-        if(viewRect.contains((int) ev.getRawX(), (int) ev.getRawY()))
+        if (viewRect.contains((int) ev.getRawX(), (int) ev.getRawY()))
             return super.dispatchTouchEvent(ev);
         tvHouseType.getGlobalVisibleRect(viewRect);
         if (!viewRect.contains((int) ev.getRawX(), (int) ev.getRawY())) {
@@ -184,6 +200,22 @@ public class MainActivity extends BaseActivity {
         return fragment;
     }
 
+    private void showFragment() {
+        if(secondHandFragment!=null&&secondHandFragment.isAdded()){
+            llSecondHand.setVisibility(View.VISIBLE);
+        }else {
+            secondHandFragment= SecondHandListFragment.newInstance();
+            FragmentTransaction begin = getSupportFragmentManager().beginTransaction();
+            begin.add(R.id.ll_second_hand, secondHandFragment);
+            begin.commit();
+            llSecondHand.setVisibility(View.VISIBLE);
+        }
+    }
+
+    private void hideFragment(){
+        llSecondHand.setVisibility(View.GONE);
+    }
+
 
     private void clearFragment() {
         try {
@@ -207,8 +239,6 @@ public class MainActivity extends BaseActivity {
         currentFragment = null;
         panoramicFragment = null;
     }
-
-
 
 
     private class MyFragmentAdapter extends FragmentPagerAdapter {
