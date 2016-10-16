@@ -17,6 +17,9 @@ import com.winer.watchhouse.adapter.HouseSizeAdapter;
 import com.winer.watchhouse.adapter.SecondHandHouseAdapter;
 import com.winer.watchhouse.adapter.SecondHandOptAdapter;
 import com.winer.watchhouse.bean.SecondHandBtnBean;
+import com.zhy.view.flowlayout.FlowLayout;
+import com.zhy.view.flowlayout.TagAdapter;
+import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -279,22 +282,28 @@ public class SecondHandListFragment extends BaseFragment {
     private void initPopMore(){
         // 一个自定义的布局，作为显示的内容
         View contentView = LayoutInflater.from(getContext()).inflate(
-                R.layout.pop_house_size, null);
-
-        ListView lvSize= (ListView) contentView.findViewById(R.id.lv_size);
+                R.layout.pop_second_hand_more, null);
         List<String> list = new ArrayList<>();
-        list.add("");
-        list.add("");
-        list.add("");
-        list.add("");
-        lvSize.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        list.add("东");
+        list.add("南");
+        list.add("西");
+        list.add("北");
+        list.add("东南");
+        list.add("东北");
+        list.add("西南");
+        list.add("西北");
+        final TagFlowLayout tagFlowLayout= (TagFlowLayout) contentView.findViewById(R.id.id_flowlayout_orientation);
+        tagFlowLayout.setAdapter(new TagAdapter<String>(list)
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                popMore.dismiss();
+            public View getView(FlowLayout parent, int position, String s)
+            {
+                TextView tv = (TextView) getLayoutInflater(null).inflate(R.layout.item_radio_textview,
+                        tagFlowLayout, false);
+                tv.setText(s);
+                return tv;
             }
         });
-        SecondHandOptAdapter adapter = new SecondHandOptAdapter(getContext(), list);
-        lvSize.setAdapter(adapter);
         popMore=new PopupWindow(contentView,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         popMore.setBackgroundDrawable(getResources().getDrawable(
