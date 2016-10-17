@@ -304,6 +304,9 @@ public class SecondHandListFragment extends BaseFragment {
                 return tv;
             }
         });
+
+        final TagFlowLayout tagHouseType= (TagFlowLayout) contentView.findViewById(R.id.tag_house_type);
+        initHouseTypeTag(tagHouseType);
         popMore=new PopupWindow(contentView,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
         popMore.setBackgroundDrawable(getResources().getDrawable(
@@ -312,6 +315,27 @@ public class SecondHandListFragment extends BaseFragment {
             @Override
             public void onDismiss() {
                 changeArrow(btnMore);
+            }
+        });
+    }
+
+    private void initHouseTypeTag(final TagFlowLayout tagFlowLayout){
+        List<String> list = new ArrayList<>();
+        list.add("不限");
+        list.add("一室");
+        list.add("二室");
+        list.add("三室");
+        list.add("三室以上");
+
+        tagFlowLayout.setAdapter(new TagAdapter<String>(list)
+        {
+            @Override
+            public View getView(FlowLayout parent, int position, String s)
+            {
+                TextView tv = (TextView) getLayoutInflater(null).inflate(R.layout.item_house_type_textview,
+                        tagFlowLayout, false);
+                tv.setText(s);
+                return tv;
             }
         });
     }

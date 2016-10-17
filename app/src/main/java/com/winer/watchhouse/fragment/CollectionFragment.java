@@ -6,15 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 
 import com.winer.watchhouse.EstateActivity;
-import com.winer.watchhouse.HouseTypeActivity;
 import com.winer.watchhouse.MainActivity;
 import com.winer.watchhouse.R;
-import com.winer.watchhouse.adapter.HouseAdapter;
 import com.winer.watchhouse.adapter.PanoramicAdapter;
-import com.winer.watchhouse.view.pullview.PullToRefreshGridView;
+import com.winer.watchhouse.adapter.SecondHandHouseAdapter;
 import com.winer.watchhouse.view.pullview.PullToRefreshListView;
 
 import java.util.ArrayList;
@@ -25,21 +22,21 @@ import butterknife.ButterKnife;
 
 
 /**
- * 全景看房
+ * 收藏
  */
-public class PanoramicFragment extends BaseFragment implements AdapterView.OnItemClickListener{
+public class CollectionFragment extends BaseFragment implements AdapterView.OnItemClickListener{
     @BindView(R.id.gv_house)
     PullToRefreshListView gvHouse;
 
-    private PanoramicAdapter adapter;
+    private SecondHandHouseAdapter adapter;
 
-    public PanoramicFragment() {
+    public CollectionFragment() {
         // Required empty public constructor
     }
 
 
-    public static PanoramicFragment newInstance() {
-        PanoramicFragment fragment = new PanoramicFragment();
+    public static CollectionFragment newInstance() {
+        CollectionFragment fragment = new CollectionFragment();
         return fragment;
     }
 
@@ -62,7 +59,7 @@ public class PanoramicFragment extends BaseFragment implements AdapterView.OnIte
         list.add("");
         list.add("");
         list.add("");
-        adapter=new PanoramicAdapter(getContext(),list);
+        adapter=new SecondHandHouseAdapter(getContext(),list);
         gvHouse.setOnItemClickListener(this);
         gvHouse.setAdapter(adapter);
     }
@@ -78,7 +75,7 @@ public class PanoramicFragment extends BaseFragment implements AdapterView.OnIte
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        ((MainActivity)getActivity()).goPage(EstateActivity.class);
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {((MainActivity)getActivity()).goPage(EstateActivity.class);
+//
     }
 }

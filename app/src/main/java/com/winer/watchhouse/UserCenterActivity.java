@@ -71,11 +71,17 @@ public class UserCenterActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_center);
         ButterKnife.bind(this);
+        initView();
     }
 
     @Override
     public void initView() {
+        topBar.setTitleRightImg(R.mipmap.ic_setting);
+    }
 
+    @Override
+    public void onTopRightClick() {
+        goPage(SettingActivity.class);
     }
 
     @OnClick({R.id.iv_logo, R.id.iv_sign_in, R.id.tv_my_info, R.id.tv_my_concern, R.id.rl_coupon, R.id.rl_red_packet, R.id.rl_gift, R.id.rl_points,
@@ -90,6 +96,7 @@ public class UserCenterActivity extends BaseActivity {
                 goPage(MyProfileActivity.class);
                 break;
             case R.id.tv_my_concern:  //关注
+                goPage(MyCollectionActivity.class);
                 break;
             case R.id.rl_coupon: //优惠券
                 goPage(MyCouponActivity.class);
@@ -98,7 +105,7 @@ public class UserCenterActivity extends BaseActivity {
                 goPage(RedPacketActivity.class);
                 break;
             case R.id.rl_gift:  //礼品
-                goPage(MyPointsActivity.class);
+                goPage(MyGiftActivity.class);
                 break;
             case R.id.rl_points: //积分
                 goPage(MyPointsActivity.class);

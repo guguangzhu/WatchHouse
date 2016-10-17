@@ -84,7 +84,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onTopLeftClick() {
-        goPage(LoginActivity.class);
+        goPage(UserCenterActivity.class);
     }
 
     @Override

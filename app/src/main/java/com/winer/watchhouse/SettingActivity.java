@@ -3,22 +3,19 @@ package com.winer.watchhouse;
 import android.os.Bundle;
 
 /**
- * 我的积分
+ * Created by guugangzhu on 2016/10/17.
  */
 
-public class MyPointsActivity extends BaseActivity {
+public class SettingActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_points);
-        initView();
+        setContentView(R.layout.activity_setting);
     }
 
     @Override
     public void initView() {
-
+        setTitle("设置");
     }
-
-
 }

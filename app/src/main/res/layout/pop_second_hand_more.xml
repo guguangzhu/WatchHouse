@@ -23,82 +23,16 @@
             android:layout_centerVertical="true"
             android:text="户型" />
 
-        <RadioGroup
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/tag_house_type"
+            zhy:max_select="1"
+            android:layout_toRightOf="@+id/tv_house_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
-            android:layout_toRightOf="@+id/tv_house_type"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/bg_blue_stroke"
-            android:orientation="horizontal"
             android:padding="1dp">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rb_blue_white_selector"
-                android:button="@null"
-                android:checked="true"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:text="不限"
-                android:textColor="@color/color_house_size_selector" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rb_blue_white_selector"
-                android:button="@null"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:text="一室"
-                android:textColor="@color/color_house_size_selector" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rb_blue_white_selector"
-                android:button="@null"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:text="二室"
-                android:textColor="@color/color_house_size_selector" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rb_blue_white_selector"
-                android:button="@null"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:text="三室"
-                android:textColor="@color/color_house_size_selector" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rb_blue_white_selector"
-                android:button="@null"
-                android:gravity="center"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:text="三室以上"
-                android:textColor="@color/color_house_size_selector" />
-        </RadioGroup>
+        </com.zhy.view.flowlayout.TagFlowLayout>
     </RelativeLayout>
 
     <View

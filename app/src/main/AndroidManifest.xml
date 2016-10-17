@@ -66,6 +66,10 @@
         <activity android:name=".CouponDetailActivity" android:screenOrientation="portrait"/>
         <!--个人资料-->
         <activity android:name=".MyProfileActivity" android:screenOrientation="portrait"/>
+        <!--设置-->
+        <activity android:name=".SettingActivity" android:screenOrientation="portrait"/>
+        <!--我的收藏-->
+        <activity android:name=".MyCollectionActivity" android:screenOrientation="portrait"/>
 
         <service android:name="com.amap.api.location.APSService"/>
     </application>
