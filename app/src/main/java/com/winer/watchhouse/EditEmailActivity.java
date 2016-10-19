@@ -12,10 +12,11 @@ public class EditEmailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_email);
+        initView();
     }
 
     @Override
     public void initView() {
-
+        setTitle("邮箱");
     }
 }

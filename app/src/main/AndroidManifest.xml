@@ -70,6 +70,26 @@
         <activity android:name=".SettingActivity" android:screenOrientation="portrait"/>
         <!--我的收藏-->
         <activity android:name=".MyCollectionActivity" android:screenOrientation="portrait"/>
+        <!--修改地址-->
+        <activity android:name=".EditAddressActivity" android:screenOrientation="portrait"/>
+        <!--修改年龄-->
+        <activity android:name=".EditAgeActivity" android:screenOrientation="portrait"/>
+        <!--修改邮箱-->
+        <activity android:name=".EditEmailActivity" android:screenOrientation="portrait"/>
+        <!--修改性别-->
+        <activity android:name=".EditGenderActivity" android:screenOrientation="portrait"/>
+        <!--修改身份证-->
+        <activity android:name=".EditIdentityActivity" android:screenOrientation="portrait"/>
+        <!--修改用户名-->
+        <activity android:name=".EditNicknameActivity" android:screenOrientation="portrait"/>
+        <!--修改手机号-->
+        <activity android:name=".EditPhoneActivity" android:screenOrientation="portrait"/>
+        <!--修改真实姓名-->
+        <activity android:name=".EditTrueNameActivity" android:screenOrientation="portrait"/>
+        <!--修改婚姻状态-->
+        <activity android:name=".ChangeMarriageStatusActivity" android:screenOrientation="portrait"/>
+        <!--修改居住城市-->
+        <activity android:name=".ChangeLivingCityActivity" android:screenOrientation="portrait"/>
 
         <service android:name="com.amap.api.location.APSService"/>
     </application>

@@ -12,10 +12,11 @@ public class EditPhoneActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_phone);
+        initView();
     }
 
     @Override
     public void initView() {
-
+        setTitle("手机号");
     }
 }

@@ -12,10 +12,11 @@ public class EditAgeActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_age);
+        initView();
     }
 
     @Override
     public void initView() {
-
+        setTitle("年龄");
     }
 }

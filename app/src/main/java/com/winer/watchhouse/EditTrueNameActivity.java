@@ -12,10 +12,11 @@ public class EditTrueNameActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_true_name);
+        initView();
     }
 
     @Override
     public void initView() {
-
+        setTitle("真实姓名");
     }
 }

@@ -12,10 +12,11 @@ public class EditNicknameActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_nickname);
+        initView();
     }
 
     @Override
     public void initView() {
-
+        setTitle("用户名");
     }
 }
