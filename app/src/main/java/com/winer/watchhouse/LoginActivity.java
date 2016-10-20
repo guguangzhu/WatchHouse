@@ -1,5 +1,6 @@
 package com.winer.watchhouse;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.winer.watchhouse.bean.ImageScrollBean;
+import com.winer.watchhouse.utils.BlurredUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +36,8 @@ public class LoginActivity extends BaseActivity {
     private int interval=50;  //每次更新控件间隔时间
     private int currentTime=0;
     private boolean isFirst=true; //是否是第一次启动线程
+
+    private Bitmap currentBitmap;
 
 
     Handler handler=new Handler(){
@@ -83,9 +87,11 @@ public class LoginActivity extends BaseActivity {
 
 
     private void initBackground(){
-        ivBg.setImageResource(currentImage.getImage());
-        ivBg.setScaleX(5);
-        ivBg.setScaleY(5);
+        Bitmap bitmap= BlurredUtil.drawableToBitmap(getResources().getDrawable(currentImage.getImage()));
+        currentBitmap=BlurredUtil.blur(this,bitmap);
+        ivBg.setImageBitmap(currentBitmap);
+        ivBg.setScaleX(3);
+        ivBg.setScaleY(3);
 
         currentTime=0;
         imageWidth=ivBg.getWidth();

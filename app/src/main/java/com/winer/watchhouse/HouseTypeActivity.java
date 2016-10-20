@@ -39,7 +39,7 @@ public class HouseTypeActivity extends BaseActivity {
     @BindView(R.id.id_stickynavlayout_viewpager)
     ViewPager idStickynavlayoutViewpager;
 
-    private String[] mTitles = new String[] { "简介", "全景看房", "图片" };
+    private String[] mTitles = new String[]{"简介", "全景看房", "图片"};
     private FragmentPagerAdapter mAdapter;
     private Fragment[] mFragments = new Fragment[mTitles.length];
 
@@ -58,36 +58,30 @@ public class HouseTypeActivity extends BaseActivity {
         setTitle("三室两厅 100㎡");
         topBar.setRightSecondImg(R.mipmap.ic_heart);
         topBar.setTitleRightImg(R.mipmap.ic_share);
-        topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0,0,  R.mipmap.ic_arrow_down_small);
+        topBar.getTitleView().setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, R.mipmap.ic_arrow_down_small);
     }
 
-    private void initEvents()
-    {
-        idStickynavlayoutViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
-        {
+    private void initEvents() {
+        idStickynavlayoutViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageSelected(int position)
-            {
+            public void onPageSelected(int position) {
             }
 
             @Override
             public void onPageScrolled(int position, float positionOffset,
-                                       int positionOffsetPixels)
-            {
+                                       int positionOffsetPixels) {
                 idStickynavlayoutIndicator.scroll(position, positionOffset);
             }
 
             @Override
-            public void onPageScrollStateChanged(int state)
-            {
+            public void onPageScrollStateChanged(int state) {
 
             }
         });
 
     }
 
-    private void initDatas()
-    {
+    private void initDatas() {
         idStickynavlayoutIndicator.setTitles(mTitles);
 
 //        for (int i = 0; i < mTitles.length; i++)
@@ -98,17 +92,14 @@ public class HouseTypeActivity extends BaseActivity {
         mFragments[1] = HouseTypePicFragment.newInstance();
         mFragments[2] = HouseTypePicFragment.newInstance();
 
-        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager())
-        {
+        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
-            public int getCount()
-            {
+            public int getCount() {
                 return mTitles.length;
             }
 
             @Override
-            public Fragment getItem(int position)
-            {
+            public Fragment getItem(int position) {
                 return mFragments[position];
             }
 
@@ -129,7 +120,7 @@ public class HouseTypeActivity extends BaseActivity {
         View contentView = LayoutInflater.from(this).inflate(
                 R.layout.pop_house_size, null);
 
-        ListView lvSize= (ListView) contentView.findViewById(R.id.lv_size);
+        ListView lvSize = (ListView) contentView.findViewById(R.id.lv_size);
         List<String> list = new ArrayList<>();
         list.add("");
         list.add("");
