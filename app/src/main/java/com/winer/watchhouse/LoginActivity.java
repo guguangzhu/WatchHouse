@@ -1,10 +1,13 @@
 package com.winer.watchhouse;
 
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -71,8 +74,15 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+//        setContentView(R.layout.activity_login);
+        View contentView=getLayoutInflater().inflate(R.layout.activity_login,null);
+        setContentView(contentView);
         ButterKnife.bind(this);
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT){
+            // 透明状态栏
+            getWindow().addFlags(
+                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
         addImage();
         currentImage=list.get(0);
         index=0;
@@ -90,8 +100,8 @@ public class LoginActivity extends BaseActivity {
         Bitmap bitmap= BlurredUtil.drawableToBitmap(getResources().getDrawable(currentImage.getImage()));
         currentBitmap=BlurredUtil.blur(this,bitmap);
         ivBg.setImageBitmap(currentBitmap);
-        ivBg.setScaleX(3);
-        ivBg.setScaleY(3);
+        ivBg.setScaleX(4);
+        ivBg.setScaleY(4);
 
         currentTime=0;
         imageWidth=ivBg.getWidth();
