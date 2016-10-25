@@ -1,1 +1,1 @@
-include ':app', ':PhotoLib'
+include ':app', ':PhotoLib', ':UmengLib', 'IMKit'

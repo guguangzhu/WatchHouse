@@ -49,4 +49,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.zhy:flowlayout-lib:1.0.3'
     compile project(':PhotoLib')
+    compile project(':IMKit')
+    compile project(':UmengLib')
 }

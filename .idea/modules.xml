@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/IMKit/IMKit.iml" filepath="$PROJECT_DIR$/IMKit/IMKit.iml" />
       <module fileurl="file://$PROJECT_DIR$/PhotoLib/PhotoLib.iml" filepath="$PROJECT_DIR$/PhotoLib/PhotoLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UmengLib/UmengLib.iml" filepath="$PROJECT_DIR$/UmengLib/UmengLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/WatchHouse.iml" filepath="$PROJECT_DIR$/WatchHouse.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

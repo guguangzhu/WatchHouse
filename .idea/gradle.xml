@@ -9,7 +9,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/IMKit" />
             <option value="$PROJECT_DIR$/PhotoLib" />
+            <option value="$PROJECT_DIR$/UmengLib" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
