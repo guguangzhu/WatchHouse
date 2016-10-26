@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.winer.watchhouse.R;
+import com.winer.watchhouse.bean.CollectionBean;
 
 import java.util.List;
 
@@ -21,13 +22,13 @@ import butterknife.ButterKnife;
  * 创建人：G.G.Z
  * 创建时间：16/3/18 19:41
  */
-public class SecondHandHouseAdapter extends BaseAdapter {
+public class CollectionHouseAdapter extends BaseAdapter {
 
     private Context mContext;
-    private List<String> list;
+    private List<CollectionBean> list;
     private LayoutInflater mInflater;
 
-    public SecondHandHouseAdapter(Context mContext, List<String> list) {
+    public CollectionHouseAdapter(Context mContext, List<CollectionBean> list) {
         this.mContext = mContext;
         this.list = list;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -52,13 +53,23 @@ public class SecondHandHouseAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder mViewHolder;
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.item_second_hand_house, null);
+            convertView = mInflater.inflate(R.layout.item_collection_house, null);
             mViewHolder = new ViewHolder(convertView);
             convertView.setTag(mViewHolder);
         } else {
             mViewHolder = (ViewHolder) convertView.getTag();
         }
 
+        if(list.get(position).isVisible()){
+            mViewHolder.checkBox.setVisibility(View.VISIBLE);
+        }else {
+            mViewHolder.checkBox.setVisibility(View.GONE);
+        }
+        if(list.get(position).isChecked()){
+            mViewHolder.checkBox.setChecked(true);
+        }else {
+            mViewHolder.checkBox.setChecked(false);
+        }
 
         return convertView;
     }

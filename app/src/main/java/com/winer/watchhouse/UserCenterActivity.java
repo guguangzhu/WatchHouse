@@ -115,6 +115,7 @@ public class UserCenterActivity extends BaseActivity {
             case R.id.ll_my_subscription:
                 break;
             case R.id.ll_counselor:
+                goPage(MyCounselorActivity.class);
                 break;
             case R.id.ll_buy_house:
                 break;

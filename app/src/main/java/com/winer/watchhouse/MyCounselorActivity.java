@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
 
-import com.winer.watchhouse.fragment.CollectionFragment;
+import com.winer.watchhouse.fragment.CounselorFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +17,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by guugangzhu on 2016/10/17. 我的收藏
+ * Created by guugangzhu on 2016/10/17. 我的顾问
  */
 
-public class MyCollectionActivity extends BaseActivity {
+public class MyCounselorActivity extends BaseActivity {
 
 
     @BindView(R.id.tabs)
@@ -28,44 +28,24 @@ public class MyCollectionActivity extends BaseActivity {
     @BindView(R.id.view_pager_collection)
     ViewPager viewPagerCollection;
 
-    private final String[] TITLE = new String[]{"楼盘", "户型","二手房"};
+    private final String[] TITLE = new String[]{"置业顾问", "经纪人"};
     private List<Fragment> mFragments = new ArrayList<>();
-    private boolean isDelModel=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_collection);
+        setContentView(R.layout.activity_my_manager);
         ButterKnife.bind(this);
         initView();
     }
 
     @Override
     public void initView() {
-        setTitle("我的收藏");
-        setTopBarRightText("删除");
+//        setTitle("我的顾问");
         tabs.setupWithViewPager(viewPagerCollection);
-        mFragments.add(CollectionFragment.newInstance());
-        mFragments.add(CollectionFragment.newInstance());
-        mFragments.add(CollectionFragment.newInstance());
+        mFragments.add(CounselorFragment.newInstance());
+        mFragments.add(CounselorFragment.newInstance());
         viewPagerCollection.setAdapter(new MyFragmentAdapter(getSupportFragmentManager()));
-    }
-
-    @Override
-    public void onTopRightClick() {
-        if(isDelModel){
-            isDelModel=false;
-            setTopBarRightText("删除");
-            changeMode();
-        }else {
-            isDelModel=true;
-            setTopBarRightText("取消");
-            changeMode();
-        }
-    }
-
-    private void changeMode(){
-        CollectionFragment fragment= (CollectionFragment) mFragments.get( viewPagerCollection.getCurrentItem());
-        fragment.changeMode(isDelModel);
     }
 
     private class MyFragmentAdapter extends FragmentPagerAdapter {
