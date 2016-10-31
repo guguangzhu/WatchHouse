@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.ViewGroup;
 
 import com.winer.watchhouse.fragment.CollectionFragment;
+import com.winer.watchhouse.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
  * Created by guugangzhu on 2016/10/17. 我的收藏
  */
 
-public class MyCollectionActivity extends BaseActivity {
+public class MyCollectionActivity extends BaseActivity implements ViewPager.OnPageChangeListener{
 
 
     @BindView(R.id.tabs)
@@ -47,6 +48,7 @@ public class MyCollectionActivity extends BaseActivity {
         mFragments.add(CollectionFragment.newInstance());
         mFragments.add(CollectionFragment.newInstance());
         mFragments.add(CollectionFragment.newInstance());
+        viewPagerCollection.addOnPageChangeListener(this);
         viewPagerCollection.setAdapter(new MyFragmentAdapter(getSupportFragmentManager()));
     }
 
@@ -66,6 +68,23 @@ public class MyCollectionActivity extends BaseActivity {
     private void changeMode(){
         CollectionFragment fragment= (CollectionFragment) mFragments.get( viewPagerCollection.getCurrentItem());
         fragment.changeMode(isDelModel);
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        LogUtils.e("onPageSelected"+position);
+        isDelModel=false;
+        setTopBarRightText("删除");
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 
     private class MyFragmentAdapter extends FragmentPagerAdapter {

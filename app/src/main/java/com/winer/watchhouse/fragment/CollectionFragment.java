@@ -65,6 +65,14 @@ public class CollectionFragment extends BaseFragment implements AdapterView.OnIt
         return view;
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(!isVisibleToUser&&isDelModel){
+            changeMode(false);
+        }
+    }
+
     private void initView() {
         cbCheck.setOnCheckedChangeListener(this);
         list = new ArrayList<>();
