@@ -38,7 +38,7 @@
                     android:textColor="@color/text_subtitle_color" />
             </LinearLayout>
 
-            <com.winer.watchhouse.view.NoScrollGridView
+            <com.toda.yjkf.view.NoScrollGridView
                 android:id="@+id/gv_outer_scene"
                 android:numColumns="2"
                 android:verticalSpacing="10dp"
@@ -68,7 +68,7 @@
                     android:textColor="@color/text_subtitle_color" />
             </LinearLayout>
 
-            <com.winer.watchhouse.view.NoScrollGridView
+            <com.toda.yjkf.view.NoScrollGridView
                 android:id="@+id/gv_inner_scene"
                 android:numColumns="2"
                 android:verticalSpacing="10dp"

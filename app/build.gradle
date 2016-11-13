@@ -5,7 +5,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.2"
     defaultConfig {
-        applicationId "com.winer.watchhouse"
+        applicationId "com.toda.yjkf"
         minSdkVersion 16
         targetSdkVersion 21
         renderscriptTargetApi 21

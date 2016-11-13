@@ -12,7 +12,7 @@
         android:layout_height="48dp">
 
     </LinearLayout>
-    <com.winer.watchhouse.view.StickyNavLayout
+    <com.toda.yjkf.view.StickyNavLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="48dp"
@@ -161,7 +161,7 @@
             </RelativeLayout>
         </RelativeLayout>
 
-        <com.winer.watchhouse.view.SimpleViewPagerIndicator
+        <com.toda.yjkf.view.SimpleViewPagerIndicator
             android:id="@id/id_stickynavlayout_indicator"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -172,7 +172,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp" />
-    </com.winer.watchhouse.view.StickyNavLayout>
+    </com.toda.yjkf.view.StickyNavLayout>
 
 
 </RelativeLayout>

@@ -8,7 +8,7 @@
         android:layout_marginTop="10dp"
         android:background="@color/line_color" />
 
-    <com.winer.watchhouse.view.ClearableEditText
+    <com.toda.yjkf.view.ClearableEditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

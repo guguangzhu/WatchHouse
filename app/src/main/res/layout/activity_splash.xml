@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_login_one"
-    tools:context="com.winer.watchhouse.SplashActivity">
+    tools:context="com.toda.yjkf.SplashActivity">
     <TextView
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
